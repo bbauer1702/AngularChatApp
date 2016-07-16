@@ -13,6 +13,7 @@ module.exports = {
   read: function(req, res) {
     chatModel
     .find(req.query)
+    .sort([['_id', -1]])
     .exec(function (err, result) {
       if (err) {
         res.send(err);

@@ -1,10 +1,10 @@
 angular.module("chatApp").service("mainServ", function($http){
 
-// This will request gifs from teh Giphy api. "horrible" is prepended to the users' query to make the results more horrible.
+// This will request a single gif from the Giphy api.
 this.getGiphy = function(query){
   return $http({
     method: "GET",
-    url: "http://api.giphy.com/v1/gifs/search?q=horrible+" + query + "&api_key=dc6zaTOxFJmzC"
+    url: "http://api.giphy.com/v1/gifs/search?q=" + query + "&limit=1&api_key=dc6zaTOxFJmzC"
   }).then(function(response){
     return response.data;
   })

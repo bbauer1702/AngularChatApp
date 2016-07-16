@@ -1,4 +1,4 @@
-angular.module("chatApp").controller("mainCtrl", function($scope, mainServ){
+angular.module("chatApp").controller("mainCtrl", function($scope, $interval, mainServ){
 
   // Declare and set default values for chats and current Gif
   $scope.allPostedChats = "Loading chat data!";     // This will hold the chat message array. The string will display until array is loaded.
@@ -54,7 +54,6 @@ angular.module("chatApp").controller("mainCtrl", function($scope, mainServ){
     });
   },
 
-  $scope.update();                                // calling the function that loads the initial data
-
+  $interval($scope.update, 1000);             // calling the function that loads the initial data, then calling it again every 1 second to refresh.
 
 });
