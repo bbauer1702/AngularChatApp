@@ -38,20 +38,23 @@ angular.module("chatApp").controller("mainCtrl", function($scope, mainServ){
     });
   },
 
-  $scope.init = function(){                     // this function loads the currentGif when page loads
+  $scope.update = function(){                     // this function loads the currentGif when page loads
     mainServ.getCurrentGiphy()                  // get current gif from server
       .then(function(response){
-        if(response.data){                      // We want to leave the default gif settings intact if there is no data (no query yet submitted)
-          $scope.currentGif = response.data;    // Save current gif data to variable that can be used on the page
+        console.log("getCurrentGiphy completed", response);
+        if(response[0]){                      // We want to leave the default gif settings intact if there is no data (no query yet submitted)
+          $scope.currentGif = response[0];    // Save current gif data to variable that can be used on the page
+          console.log("$scope.currrentGif", $scope.currentGif)
         }
     });
     mainServ.getChats()                         // Get chat messages from server
       .then(function(response){
+        console.log('getChats completed', response)
         $scope.allPostedChats = response.data;  // Set response from server to variable that can be displayed
     });
   },
 
-  $scope.init();                                // calling the function that loads the initial data
+  $scope.update();                                // calling the function that loads the initial data
 
 
 });
