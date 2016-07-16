@@ -7,13 +7,20 @@
 
   <body ng-controller="mainCtrl">
 
-    <form ng-submit="postChat(newChat)">
-      <input type="text" ng-model="newChat" />
-      <button type="submit"> submit! </button>
+    <img class="current-gif" src={{currentGif.url}} />
+
+    <form ng-submit="postNewGif(gifQuery)">
+      <input type="text" ng-model="gifQuery" />
+      <button type="submit"> See something else! </button>
     </form>
 
-    <div ng-repeat='chat in allPostedChats'>
-    <p>{{chat.date}} ::: {{chat.body}}</p>
+    <form ng-submit="postChat(newChat)">
+      <input type="text" ng-model="newChat" />
+      <button type="submit"> Submit! </button>
+    </form>
+
+    <div ng-repeat='chat in allPostedChats track by $index'>
+     <p>{{chat.date}} ::: {{chat.body}}</p>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
