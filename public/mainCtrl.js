@@ -7,6 +7,7 @@ angular.module("chatApp").controller("mainCtrl", function($scope, $interval, mai
     query: "terrible default orca legs image",
     date: new Date
   };
+  $scope.showDetails = false;                       // Changes to true when doubleclicking a chat message, dblclick the details to toggle back
 
   // Function that creates/prepares a chat object to be saved in the database and passes it to the function that performs the POST
   $scope.postChat = function(chatString){

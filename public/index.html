@@ -20,7 +20,8 @@
     </form>
 
     <div ng-repeat='chat in allPostedChats track by $index'>
-     <p>{{chat.date}} ::: {{chat.body}}</p>
+     <p ng-dblclick='showDetails=true'> {{chat.date}} ::: {{chat.body}}</p>
+     <p ng-show='showDetails' ng-dblclick='showDetails=false'> ( Referring to: <a href={{chat.currentGifUrl}} target="_blank">{{chat.currentGifQuery}}</a> )</p>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
