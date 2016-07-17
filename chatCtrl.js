@@ -14,6 +14,7 @@ module.exports = {
     chatModel
     .find(req.query)
     .sort([['_id', -1]])
+    .limit(50)
     .exec(function (err, result) {
       if (err) {
         res.send(err);

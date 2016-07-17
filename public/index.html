@@ -1,27 +1,40 @@
 <html ng-app="chatApp">
 
   <head>
-    <title>HorribleChat</title>
+    <title>UglyChat</title>
     <link rel="stylesheet" href='styles.css'>
   </head>
 
   <body ng-controller="mainCtrl">
 
-    <img class="current-gif" src={{currentGif.url}} />
+    <div class="gif-container">
+      <h1> UglyChat </h1>
+      <h4> How it works: Everyone is able to see the gif you search for and leave comments. Also everything is really ugly and horrible. Double click a message for context. </h4>
+      <img class="current-gif" src={{currentGif.url}} />
 
-    <form ng-submit="postNewGif(gifQuery)">
-      <input type="text" ng-model="gifQuery" />
-      <button type="submit"> See something else! </button>
-    </form>
+      <div class="post-gif-form">
+        <form ng-submit="postNewGif(gifQuery)">
+          <input type="text" ng-model="gifQuery" />
+          <button type="submit"> Show us something interesting! </button>
+        </form>
+      </div>
 
-    <form ng-submit="postChat(newChat)">
-      <input type="text" ng-model="newChat" />
-      <button type="submit"> Submit! </button>
-    </form>
+    </div>
 
-    <div ng-repeat='chat in allPostedChats track by $index'>
-     <p ng-dblclick='showDetails=true'> {{chat.date}} ::: {{chat.body}}</p>
-     <p ng-show='showDetails' ng-dblclick='showDetails=false'> ( Referring to: <a href={{chat.currentGifUrl}} target="_blank">{{chat.currentGifQuery}}</a> )</p>
+
+    <div class="chat-section">
+      <div class="post-chat-form">
+        <form ng-submit="postChat(newChat)">
+          <h3>Tell us how this makes you feel</h3>
+          <input type="text" ng-model="newChat" />
+          <button type="submit"> Submit! </button>
+        </form>
+      </div>
+
+      <div class="chat-list" ng-repeat='chat in allPostedChats track by $index'>
+       <p class="chat-line" ng-dblclick='showDetails=true'> {{chat.date}} ::: {{chat.body}}</p>
+       <p class="details" ng-show='showDetails' ng-dblclick='showDetails=false'> ( Referring to: <a href={{chat.currentGifUrl}} target="_blank">{{chat.currentGifQuery}}</a> )</p>
+      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>

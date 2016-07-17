@@ -1,0 +1,60 @@
+body, div, p, img, form {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h4 {
+  width: 35vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.current-gif {
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 40px;
+}
+
+.gif-container {
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 5vh;
+  background-color: rgba(84, 32, 177, 0.45);
+  border-radius: 8px;
+  border: 6px solid blue;
+  text-align: center;
+  width: 75vw;
+}
+
+.post-gif-form {
+  margin-bottom: 20px;
+}
+
+.chat-section {
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 75vw;
+  background-color: rgba(84, 32, 177, 0.45);
+  border-radius: 8px;
+  border: 6px solid blue;
+  margin-top: 40px;
+}
+
+.chat-list {
+  padding: 10px;
+  font-size: 1.3em;
+}
+
+.post-chat-form {
+  padding: 10px;
+  display: inline-block;
+  
+}
